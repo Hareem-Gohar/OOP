@@ -1,84 +1,96 @@
-
-# Student Grades Management System
+# Library Management System
 
 ## Problem Statement
 
-The task is to develop a **Student Grades Management System** using C++ that allows the management of student grades. The system provides various functionalities such as adding grades, removing grades, displaying grades for individual students, calculating class average, and finding the highest and lowest grades for both individual students and the entire class.
+Create a program that simulates a simple library management system. The program should manage books and allow users to borrow and return them.
 
-### Features of the system:
-1. **Add Grade**: Add grades for students (with validation).
-2. **Remove Grade**: Remove a specific grade for a student.
-3. **Display Grades for a Student**: Show all grades of a student.
-4. **Display Class Average**: Calculate and display the average grade of all students in the class.
-5. **Find Highest and Lowest Grade for a Student**: Display the highest and lowest grades for a specific student.
-6. **Display Highest and Lowest Grade in the Class**: Find the highest and lowest grades in the entire class.
+### Specifications:
+
+1. **Book Class:**
+   - Attributes for the title, author, and availability status (e.g., true for available, false for checked out).
+   - A constructor to initialize the book with its title and author. By default, the book should be available.
+   - A method to check out the book (mark it as unavailable if it’s not already checked out).
+   - A method to return the book (mark it as available if it’s currently checked out).
+
+2. **Library Class:**
+   - Stores a collection of books (using an array or vector of Book objects).
+   - Has methods to add books, display all available books, check out a book, and return a book.
+   - Allows users to enter the title of a book they wish to check out or return and searches for that book in the library.
+
+3. **Main Program:**
+   - Displays a menu allowing the user to:
+     - Add a new book to the library.
+     - Display all available books.
+     - Borrow a book.
+     - Return a book.
+     - Exit the program.
 
 ## Functions Used
 
-1. **getGradesCount(string& name)**:
-   - Returns the number of grades for a student.
-   
-2. **hasGrade(string& name)**:
-   - Checks if the student has any grades assigned.
-   
-3. **addGrade(string& name, int grade)**:
-   - Adds a grade for a student after validating that the grade is between 0 and 100.
-   
-4. **removeGrade(string& name, int grade)**:
-   - Removes a specific grade for a student. If no grades are left, the student is removed from the system.
-   
-5. **displayAllGrades(string& name)**:
-   - Displays all grades for a specific student.
-   
-6. **displayClassAvg()**:
-   - Displays the average of all grades in the class.
-   
-7. **findStudentHighestLowest(string& name)**:
-   - Finds and displays the highest and lowest grades for a specific student.
-   
-8. **findClassHighestLowest()**:
-   - Finds and displays the highest and lowest grades for the entire class.
+### Book Class:
 
-## What I Learned
+1. **Constructor**: 
+   - `Books(string title, string author)` initializes the book with its title and author. By default, the book is set to available (`isAvailable = true`).
 
-In this project, I learned the following:
+2. **checkout()**: 
+   - Checks out the book by setting its availability to `false`. Returns `true` if the checkout is successful, `false` if the book is already checked out.
 
-1. **Use of `map` in C++**:
-   - A `map` is used to store student names as keys and their grades as values (stored in a `vector<int>`). I learned how to efficiently store and access data using the `map` container.
-   
-2. **Iterating over Collections**:
-   - I learned how to iterate over `map` and `vector` collections using iterators and range-based for loops to perform operations like calculating averages and finding minimum/maximum values.
-   
-3. **Conditional Statements**:
-   - I implemented conditional checks to validate user input and ensure only valid grades (between 0 and 100) are added. Also, I used conditions to ensure proper error handling for invalid actions like trying to remove a grade that does not exist.
-   
-4. **Functions and Parameters**:
-   - I gained hands-on experience in creating and using functions with parameters and return types to break down complex tasks into manageable operations. Each function encapsulates a specific task related to grade management.
-   
-5. **Error Handling and User Interaction**:
-   - I improved my skills in user interaction, handling incorrect inputs gracefully, and providing appropriate error messages when something goes wrong.
+3. **returnBook()**: 
+   - Marks the book as available by setting its availability to `true`.
 
-6. **Using STL Algorithms**:
-   - I learned how to use STL algorithms such as `find`, `max_element`, and `min_element` to efficiently find elements in containers like vectors.
+4. **getTitle()**: 
+   - Returns the title of the book.
+
+5. **getAuthor()**: 
+   - Returns the author of the book.
+
+6. **isBookAvailable()**: 
+   - Checks if the book is available or not.
+
+### Library Class:
+
+1. **addBook()**: 
+   - Adds a new book to the library.
+
+2. **displayAvailableBooks()**: 
+   - Displays all the available books in the library.
+
+3. **borrowBook()**: 
+   - Allows the user to borrow a book by providing the title. If the book is available, it is checked out.
+
+4. **returnBook()**: 
+   - Allows the user to return a borrowed book by providing the title.
+
+### Main Program:
+
+1. **Menu System**:
+   - Displays the options for adding books, borrowing, returning, and displaying available books.
+   - Takes user input to perform actions like adding books, borrowing, and returning them.
+
+## What I Learn
+
+
+1. **Object-Oriented Programming (OOP) Concepts**:
+   - Classes and objects.
+   - Constructors and member functions.
+   - Accessing and modifying object attributes.
+   - Encapsulation and method calls.
+
+2. **Data Management**:
+   - Storing a collection of objects (books) using a dynamic array or vector.
+   - Searching for books within a collection using loops.
+
+3. **User Interaction**:
+   - Displaying menus to the user.
+   - Receiving and processing user input.
+   - Implementing a simple interface for interacting with the system.
 
 ## Concepts Implemented
 
-1. **Data Structures**:
-   - **`map`**: Used to store student names as keys and their grades as a vector of integers as values.
-   - **`vector<int>`**: Used to store the grades for each student.
-   
-2. **Control Structures**:
-   - **`if-else` statements**: Used to check if a student exists and has grades before performing operations like adding or removing grades.
-   - **`for` loop**: Used to iterate through lists of grades and calculate statistics like averages and highest/lowest grades.
-
-3. **C++ Standard Library**:
-   - **`map`**: To map student names to their grades.
-   - **`vector`**: For storing the list of grades.
-   - **`find`**: To check if a specific grade exists in a student's grade list.
-   - **`max_element` and `min_element`**: Used to find the highest and lowest grades in the list of grades for a student or the entire class.
-   
-4. **Input/Output**:
-   - **`cin` and `cout`**: Used for user interaction, taking inputs, and displaying outputs.
-
-5. **Error Handling**:
-   - Checks for valid grade values and appropriate actions when attempting to remove a grade or perform other operations on non-existent data.
+- **Encapsulation**: The `Books` class encapsulates the attributes of a book (title, author, and availability) and provides methods to interact with these attributes, keeping the internal workings hidden from the outside.
+  
+- **Array (Vector)**: The `Library` class uses a dynamic array (vector) to store the collection of books, allowing easy addition and retrieval of books.
+  
+- **Searching**: The program searches for books by their title when borrowing or returning them.
+  
+- **Conditionals**: Using conditionals like `if-else` to check book availability and ensure that books can only be borrowed or returned under the correct conditions.
