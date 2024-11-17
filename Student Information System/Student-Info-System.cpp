@@ -1,3 +1,11 @@
+//Problem: Student Information System
+//You need to create a Student class that models basic studen information for a university database. The Student class should have the following private data members:
+//name: A string to store the student's name.
+//rollNumber: An integer to store the student's roll number.
+//age: An integer to store the student's age.
+//grade: A character representing the student's grade (A, B, C, etc.).
+
+
 #include <iostream>
 #include <string>
 using namespace std;
